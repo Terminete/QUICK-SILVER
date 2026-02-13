@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 import { FaXmark } from "react-icons/fa6";
 
@@ -32,6 +33,7 @@ const Checkout = () => {
     };
     localStorage.setItem("order", JSON.stringify(order));
     alert("Order saved. proceeding to payment...");
+    navigate("/payment")
   }
 
   return (

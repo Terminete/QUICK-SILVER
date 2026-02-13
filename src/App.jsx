@@ -17,6 +17,7 @@ import Register from "./pages/Register";
 import Home from "./pages/home";
 import Order from "./pages/Order";
 import Track from "./pages/Track";
+import payment from "./pages/payment";
 import Feedback from "./pages/feedback";
 import Checkout from "./Context/Checkout";
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="/order/:id" element={<Order />} />
           <Route path="/track" element={<Track />} />
+          <Route path="/payment" element={<payment />} />
           <Route path="/feedback" element={<Feedback />} />
         </Routes>
       </BrowserRouter>
