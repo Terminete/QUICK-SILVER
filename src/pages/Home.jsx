@@ -9,19 +9,19 @@ const Home = () => {
   const { addToCart } = useCart();
   return (
     <>
-      <div className="flex flex-col   ">
+      <div className="flex flex-col min-w-full   ">
         <div className="w-full fixed ">
           <Navbar />
         </div>
         <div className=" ">
-          <h2 className="text-2xl font-bold  text-center bg-amber-700">
+          <h2 className="text-2xl font-bold  text-center ">
             WELCOME TO QUICK SILVER
           </h2>
-          <div className="grid grid-cols-3 gap-6 w-[80%] m-auto justify-items-center mt-22 ">
+          <div className="grid grid-cols-4 gap-4 m-auto justify-items-center mt-22 ">
             {brands.map((brand) => (
               <div
                 key={brand.id}
-                className="border border-gray-300 px-3 py-2 w-[70%] bg-gray-100 rounded-md  "
+                className="border border-gray-300 px-3 py-2 w-[80%] bg-gray-100 rounded-md  "
               >
                 <h3
                   className=" font-semibold "

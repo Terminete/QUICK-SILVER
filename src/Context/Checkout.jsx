@@ -43,7 +43,7 @@ const Checkout = () => {
 
       <div className="min-w-full mx-auto p-6 flex  justify-between gap-6">
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow">
-          <h2 className="text-xl font-bold mb-4">Delivery Details</h2>
+          <h2 className="text-xl font-bold mb-4">Delivery Details nad status</h2>
 
           <label className="block mb-2 font-medium">Delivery Address</label>
           <input
