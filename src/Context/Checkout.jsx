@@ -5,18 +5,19 @@ import { useCart } from "./CartContext";
 import { FaXmark } from "react-icons/fa6";
 
 const Checkout = () => {
+  const navigate = useNavigate()
   const [quantity, setQuantity] = useState(1);
   const [address, setAddress] = useState("");
   const [location, setLocation] = useState("");
-  // const brand = {
-  //   name: "Total Gas",
-  //   price: 2500,
-  //   image: "/images/13kg totalEnergies.png",
-  // };
+   const brand = {
+     name: "Total Gas",
+   price: 2500,
+     image: "/images/13kg totalEnergies.png",
+   };
 
   const { cart, removeFromCart } = useCart();
 
-  // const totalPrice = brand.price * quantity;
+   const totalPrice = brand.price * quantity;
   function handleSubmit(e) {
     e.preventDefault();
     if (!address || !location) {

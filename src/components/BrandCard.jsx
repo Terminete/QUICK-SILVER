@@ -6,6 +6,8 @@ import { useState } from "react"
 import { use } from "react"
 const BrandCard = ({brand}) => {
 const navigate = use()
+
+
   if (!brand) return  null
   return (
     < >
