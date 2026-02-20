@@ -21,7 +21,7 @@ const Home = () => {
             {brands.map((brand) => (
               <div
                 key={brand.id}
-                className="border border-gray-300 px-3 py-2 w-[80%] bg-gray-100 rounded-md  "
+                className="border border-blue-300 px-3 py-2 w-[80%] bg-blue-300 rounded-md  "
               >
                 <h3
                   className=" font-semibold "
@@ -34,10 +34,10 @@ const Home = () => {
                 <img
                   src={brand.image}
                   alt=""
-                  className="bg-gray-100  h-60 w-[100%] "
+                  className="bg-gray-100  h-30 w-[100%] "
                 />
                 <button
-                  className=" px-3 py-1 my-3 border-1 border-gray-300 shadow-gray-400 shadow-sm hover:bg-gray-300 hover:text-gray-900 font-semibold hover:cursor-pointer rounded-md   "
+                  className=" px-3 py-1 my-3 border-1 border-gray-300 shadow-red-400 shadow-sm hover:bg-pink-500 hover:text-gray-900 font-semibold hover:cursor-pointer rounded-md   "
                   onClick={() => addToCart(brand)}
                 >
                   Add to Cart
