@@ -75,7 +75,7 @@ const Register = () => {
         ) : (
           <div className="text-center">
             <h3 className="text-xl font-semibold text-green-600">
-              Registration Successful ✅
+              Registration Successful 
             </h3>
             <p className="text-gray-600 mt-2">
               You can now log in and order gas.
