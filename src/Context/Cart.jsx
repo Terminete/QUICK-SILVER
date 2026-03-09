@@ -6,11 +6,11 @@ const Cart = () => {
   const { cart, removeFromCart } = useCart();
 
   return (
-    <div className="bg-gray-100 min-h-screen  ">
+    <div className="bg-blue-500 min-h-screen  ">
       <Navbar />
       {cart.length === 0 ? (
         <div className="mt-10 w-full flex justify-center ">
-          <div className="flex justify-center w-[80%]  border rounded-md shadow-gray-400 shadow-sm border-gray-400  ">
+          <div className="flex justify-center w-[80%]  border rounded-md shadow-blue-400 shadow-sm border-gray-400  ">
             <p className="py-3 flex justify-center font-semibold text-gray-400 ">Oops! Your cart is empty</p>
           </div>
         </div>

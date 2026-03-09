@@ -1,15 +1,28 @@
 import React from "react";
 import BrandCard from "../components/BrandCard";
-import brands from "../data/brands";
+import { useState } from "react";
+import { brands } from "../data/brands";
 import { useCart } from "../Context/CartContext";
-
+import { useLocation } from "react-router-dom";
 import Cart from "../Context/Cart";
 import Navbar from "../components/Navbar";
 const Home = () => {
   const { addToCart } = useCart();
+  const [search, setSearch] = useState(" ");
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const searchQuery = queryParams.get("search") || "";
+  const filteredBrands = brands.filter((brand) => {
+    if (!search) return true;
+    return brand.name?.toLocaleLowerCase().includes(search.toLocaleLowerCase());
+  }
+
+  );
+  
   return (
     <>
       <div className="flex flex-col min-w-full   ">
+        
         <div className="w-full fixed ">
           <Navbar />
         </div>
@@ -18,7 +31,8 @@ const Home = () => {
             WELCOME TO QUICK SILVER
           </h2>
           <div className="grid grid-cols-4 gap-4 m-auto justify-items-center mt-22 ">
-            {brands.map((brand) => (
+            {filteredBrands.length === 0 && <p> No brands found</p> }
+            {filteredBrands.map((brand) => (
               <div
                 key={brand.id}
                 className="border border-blue-300 px-3 py-2 w-[80%] bg-blue-300 rounded-md  "
