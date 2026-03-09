@@ -70,7 +70,7 @@ const Checkout = () => {
             value={quantity}
             onChange={(e) => setQuantity(Number(e.target.value))}
           />
-          <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
+          <button className="w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700">
             Save & Proceed to Payment
           </button>
         </form>
