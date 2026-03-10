@@ -14,11 +14,11 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Cart from "./Context/Cart";
 import Register from "./pages/Register";
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import Order from "./pages/Order";
 import Track from "./pages/Track";
 import Payment from "./pages/Payment";
-import Feedback from "./pages/feedback";
+import Feedback from "./pages/Feedback";
 import Checkout from "./Context/Checkout";
 
 function App() {
