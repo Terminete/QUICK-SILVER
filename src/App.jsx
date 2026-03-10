@@ -11,7 +11,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 //PAGES
 
-import Login from "./pages/login";
+import Login from "./pages/Login";
 import Cart from "./Context/Cart";
 import Register from "./pages/Register";
 import Home from "./pages/home";
