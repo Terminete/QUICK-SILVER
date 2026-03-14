@@ -17,7 +17,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Order from "./pages/Order";
 import Track from "./pages/Track";
-import Payment from "./pages/Payment"
+import Payment from "./pages/Payment";
 import Feedback from "./pages/Feedback";
 import Checkout from "./Context/Checkout";
 
