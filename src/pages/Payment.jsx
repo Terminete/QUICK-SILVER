@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom"
-const payment = () => {
+const Payment = () => {
   const navigate = useNavigate()
   const order = JSON.parse(localStorage.getItem(" order "))
   if (!order){
@@ -33,5 +33,5 @@ const payment = () => {
   )
 }
 
-export default payment
+export default Payment
 
