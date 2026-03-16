@@ -35,7 +35,7 @@ const Home = () => {
             {filteredBrands.map((brand) => (
               <div
                 key={brand.id}
-                className="border border-blue-300 px-3 py-2 w-[80%] bg-blue-300 rounded-md  "
+                className="border border-red-300 px-3 py-2 w-[80%] bg-violet-900 rounded-md  "
               >
                 <h3
                   className=" font-semibold "
@@ -48,7 +48,7 @@ const Home = () => {
                 <img
                   src={brand.image}
                   alt=""
-                  className="bg-gray-100  h-30 w-[100%] "
+                  className="bg-violet-900  h-40 w-[100%] "
                 />
                 <button
                   className=" px-3 py-1 my-3 border-1 border-gray-300 shadow-red-400 shadow-sm hover:bg-pink-500 hover:text-gray-900 font-semibold hover:cursor-pointer rounded-md   "
