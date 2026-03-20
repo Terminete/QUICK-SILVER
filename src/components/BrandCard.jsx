@@ -13,7 +13,7 @@ const navigate = use()
     < >
 <div className="border rounded-1g shadow hover:shadow-1g transition
 ">
-  <img src={brand.image} alt={brand.name} className='w-full h-48 object-cover rounded-t'/>
+  <img src={brand.image} alt={brand.name} className='w-full h-40 object-cover rounded-t'/>
   <div className="p-4">
     <h3 className='text-1g font-semibold'>{brand.name}</h3>
     <p className='text-green-600 font-bold'>KES {brand.price}</p>

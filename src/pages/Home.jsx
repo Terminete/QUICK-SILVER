@@ -26,29 +26,29 @@ const Home = () => {
         <div className="w-full fixed ">
           <Navbar />
         </div>
-        <div className=" ">
-          <h2 className="text-2xl font-bold  text-center ">
+        <div className="px-4 py-6 ">
+          <h2 className="text-2xl font-bold  text-center  mb-4">
             WELCOME TO QUICK SILVER
           </h2>
-          <div className="grid grid-cols-4 gap-4 m-auto justify-items-center mt-22 ">
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 m-auto justify-items-center mt-22 ">
             {filteredBrands.length === 0 && <p> No brands found</p> }
             {filteredBrands.map((brand) => (
               <div
                 key={brand.id}
-                className="border border-red-300 px-3 py-2 w-[80%] bg-violet-900 rounded-md  "
+                className="border border-red-300 px-3 py-2 w-[80%] bg-violet-900 rounded-md flex flex-col items-center  "
               >
                 <h3
-                  className=" font-semibold "
+                  className="font-semibold text-lg"
                 >
                   {brand.name}
                 </h3>
-                <p className=" text-xl font-semibold py-1 ">
+                <p className=" text-green-600 font-semibold py-1 ">
                   KES {brand.price}
                 </p>
                 <img
                   src={brand.image}
                   alt=""
-                  className="bg-violet-900  h-40 w-[100%] "
+                  className="bg-violet-900  h-60 w-[100%] object-contain my-3 "
                 />
                 <button
                   className=" px-3 py-1 my-3 border-1 border-gray-300 shadow-red-400 shadow-sm hover:bg-pink-500 hover:text-gray-900 font-semibold hover:cursor-pointer rounded-md   "

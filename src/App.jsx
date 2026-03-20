@@ -23,9 +23,9 @@ import Checkout from "./Context/Checkout";
 
 function App() {
   return (
-    <>
+    <div className="max-w-8xl mx-auto px-4">
       
-
+      
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -39,7 +39,9 @@ function App() {
           <Route path="/feedback" element={<Feedback />} />
         </Routes>
       </BrowserRouter>
-    </>
+  
+      
+    </div>
   );
 }
 
