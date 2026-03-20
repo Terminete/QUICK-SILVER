@@ -9,7 +9,7 @@ const Cart = () => {
     <div className="bg-blue-500 min-h-screen  ">
       <Navbar />
       {cart.length === 0 ? (
-        <div className="mt-10 w-full flex justify-center ">
+        <div className="mt-10 w-full flex justify-center bg-gray-500 p-6 rounded-lg text-center ">
           <div className="flex justify-center w-[80%]  border rounded-md shadow-blue-400 shadow-sm border-gray-400  ">
             <p className="py-3 flex justify-center font-semibold text-gray-400 ">Oops! Your cart is empty</p>
           </div>
@@ -19,7 +19,7 @@ const Cart = () => {
           {cart.map((brand) => (
             <div
               key={brand.id}
-              className="border border-gray-300 px-3 py-2 w-[70%] bg-gray-100 rounded-md  "
+              className="border border-gray-300 px-3 py-2 w-[70%] bg-gray-100 rounded-lg shadow mb-3 flex justify-between items-center   "
             >
               <p>{brand.name}</p>
               <p>KES {brand.price}</p>
