@@ -6,6 +6,7 @@ import { useCart } from "../Context/CartContext";
 import { useLocation } from "react-router-dom";
 import Cart from "../Context/Cart";
 import Navbar from "../components/Navbar";
+import { FaBars } from "react-icons/fa6";
 const Home = () => {
   const { addToCart } = useCart();
   const [search, setSearch] = useState(" ");
@@ -25,11 +26,9 @@ const Home = () => {
         
         <div className="w-full fixed ">
           <Navbar />
+          <FaBars />
         </div>
-        <div className="px-4 py-6 ">
-          <h2 className="text-2xl font-bold  text-center  mb-4">
-            WELCOME TO QUICK SILVER
-          </h2>
+        <div className="px-6 py-6 ">
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 m-auto justify-items-center mt-22 ">
             {filteredBrands.length === 0 && <p> No brands found</p> }
             {filteredBrands.map((brand) => (
