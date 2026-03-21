@@ -9,6 +9,7 @@ import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
+
 //PAGES
 
 import Login from "./pages/Login";
@@ -20,12 +21,13 @@ import Track from "./pages/Track";
 import Payment from "./pages/Payment";
 import Feedback from "./pages/Feedback";
 import Checkout from "./Context/Checkout";
+import Footer from "./components/footer";
+
 
 function App() {
   return (
-    <div className="max-w-8xl mx-auto px-4">
-      
-      
+    <div className="max-w-9xl mx-auto px-8">
+  
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -37,11 +39,14 @@ function App() {
           <Route path="/track" element={<Track />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/feedback" element={<Feedback />} />
+        
+
         </Routes>
       </BrowserRouter>
   
-      
+      <Footer />
     </div>
+  
   );
 }
 
