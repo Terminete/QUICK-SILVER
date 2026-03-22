@@ -26,7 +26,7 @@ import Footer from "./components/footer";
 
 function App() {
   return (
-    <div className="max-w-9xl mx-auto px-8">
+    <div className="w-full ">
   
       <BrowserRouter>
         <Routes>
