@@ -20,9 +20,9 @@ const Payment = () => {
   return (
     <div>
       <h2>Payment Summary</h2>
-      <p><strong>Brand:</strong> {order.brand.name}</p>
-            <p><strong>Quantity:</strong> {order.quantity}</p>
-      <p><strong>Brand:</strong> {order.totalPrice}</p>
+      <p><strong>Brand:</strong> {order.brands.name}</p>
+            <p><strong>Quantity:</strong> {order.brands.quantity}</p>
+      <p><strong>Brand:</strong> {order.brands.totalPrice}</p>
       <button
       onClick={handlePayment}
               className="w-full mt-6 bg-green-600 text-white py-2 rounded hover:bg-green-700"

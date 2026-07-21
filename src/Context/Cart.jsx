@@ -9,7 +9,7 @@ const Cart = () => {
     <div className="bg-blue-500 min-h-screen  ">
       <Navbar />
       {cart.length === 0 ? (
-        <div className="mt-10 w-full flex justify-center bg-gray-500 p-6 rounded-lg text ">
+        <div className="mt-10 w-full flex justify-center bg-grey-500 p-6 rounded-lg text ">
           <div className="flex justify-center w-[80%]  border rounded-md shadow-blue-400 shadow-sm border-gray-400  ">
             <p className="py-3 flex justify-center font-semibold text-gray-400 ">Oops! Your cart is empty</p>
           </div>

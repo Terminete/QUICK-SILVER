@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import "./App.css";
+// import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 //PAGES
@@ -21,10 +22,11 @@ import Track from "./pages/Track";
 import Payment from "./pages/Payment";
 import Feedback from "./pages/Feedback";
 import Checkout from "./Context/Checkout";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 
 function App() {
+  // const location = useLocation();
   return (
     <div className="w-full ">
   
@@ -38,13 +40,13 @@ function App() {
           <Route path="/order/:id" element={<Order />} />
           <Route path="/track" element={<Track />} />
           <Route path="/payment" element={<Payment />} />
-          <Route path="/feedback" element={<Feedback />} />
-        
+          <Route path="/feedback" element={<Feedback />} /> 
+          
 
         </Routes>
+         {location.pathname === "/" && <Footer />}
       </BrowserRouter>
-  
-      <Footer />
+    
     </div>
   
   );

@@ -22,19 +22,24 @@ const Home = () => {
   
   return (
     <>
-      <div className="flex flex-col min-w-full   ">
+      <div className="flex flex-col min-w-full    ">
         
         <div className="w-full fixed ">
           <Navbar />
           <FaBars />
         </div>
         <div className="px-6 py-6 ">
-          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 m-auto justify-items-center mt-22 ">
+          <div className="grid
+                    grid-cols-1
+                    sm:grid-cols-2
+                    lg:grid-cols-3
+                    xl:grid-cols-4
+                    gap-8 ">
             {filteredBrands.length === 0 && <p> No brands found</p> }
             {filteredBrands.map((brand) => (
               <div
                 key={brand.id}
-                className="border border-red-300 px-3 py-2 w-[80%] bg-violet-900 rounded-md flex flex-col items-center  "
+                className="border border-red-300 px-3 py-2 w-[80%] bg-white rounded-md shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col items-center  "
               >
                 <h3
                   className="font-semibold text-lg"
@@ -47,10 +52,25 @@ const Home = () => {
                 <img
                   src={brand.image}
                   alt=""
-                  className="bg-violet-900  h-60 w-[100%] object-contain my-3 "
+                  className=" h-60
+                        w-full
+                        object-contain
+                        bg-gray-100 
+                                      hover:-translate-y-2
+                        hover:shadow-2xl
+                        transition-all
+                        duration-500  
+ "
                 />
                 <button
-                  className=" px-3 py-1 my-3 border-1 border-gray-300 shadow-red-400 shadow-sm hover:bg-pink-500 hover:text-gray-900 font-semibold hover:cursor-pointer rounded-md   "
+                  className=" w-full
+                  bg-green-600
+                  hover:bg-green-700
+                  text-white
+                  py-3
+                  rounded-lg
+                  transition
+                  font-semibold    "
                   onClick={() => addToCart(brand)}
                 >
                   Add to Cart
