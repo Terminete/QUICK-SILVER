@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import Cart from "../Context/Cart";
 import Navbar from "../components/Navbar";
 import { FaBars } from "react-icons/fa6";
+import Footer from "../components/Footer";
 const Home = () => {
   const { addToCart } = useCart();
   const [search, setSearch] = useState(" ");
@@ -80,6 +81,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

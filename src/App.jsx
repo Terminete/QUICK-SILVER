@@ -22,7 +22,7 @@ import Track from "./pages/Track";
 import Payment from "./pages/Payment";
 import Feedback from "./pages/Feedback";
 import Checkout from "./Context/Checkout";
-import Footer from "./components/Footer";
+
 
 
 function App() {
@@ -44,7 +44,7 @@ function App() {
           
 
         </Routes>
-         {location.pathname === "/" && <Footer />}
+  
       </BrowserRouter>
     
     </div>
