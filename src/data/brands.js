@@ -4,8 +4,8 @@
   {
     id: 1,
     name: "Total Gas",
-    price: 2500,
     image:"/images/13kg totalEnergies.png",
+      price: 2500,
   },
   {
     id: 2,
@@ -134,5 +134,27 @@ image:"/images/6kg pro gas.png"
     price:1200,
     image:"/images/PROgas-13kg.jpg"
   },
+  {
+    id:23,
+    name:"burner",
+    price:500,
+    image:"/images/burner.jpeg"
+  },{
+    id:24,
+    name:"lighter",
+    price:20,
+    image:"/images/lighters.jpeg"
+  },{
+    id:25,
+    name:"cooker",
+    price:750,
+    image:"/images/cooker.jpeg"
+  },
+  {
+    id:26,
+    name:"primus burner",
+    price: 360,
+    image:"/images/primus burner.jpeg"
+  }
 ]
 export default brands
