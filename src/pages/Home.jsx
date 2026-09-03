@@ -32,11 +32,11 @@ const Home = () => {
         </div>
         <div className="px-6 py-6 ">
           <div className="grid
-                    grid-cols-1
-                    sm:grid-cols-2
+                    grid-cols-4
+                    sm:grid-cols-4
                     lg:grid-cols-4
                     xl:grid-cols-4
-                    gap-6 ">
+                    gap-4 ">
           
             {filteredBrands.map((brand) => (
               <div
@@ -48,9 +48,7 @@ const Home = () => {
                 >
                   {brand.name}
                 </h3>
-                <p className=" text-green-600 font-semibold py-1 ">
-                  KES {brand.price}
-                </p>
+               
                 <img
                   src={brand.image}
                   alt=""
@@ -64,6 +62,9 @@ const Home = () => {
                         duration-500  
  "
                 />
+                 <p className=" text-green-600 font-semibold py-1 ">
+                  KES {brand.price}
+                </p>
                 <button
                   className=" w-full
                   bg-green-600
