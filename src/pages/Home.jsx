@@ -10,37 +10,38 @@ import { FaBars } from "react-icons/fa6";
 import Footer from "../components/Footer";
 const Home = () => {
   const { addToCart } = useCart();
-  const [search, setSearch] = useState(" ");
+  const [searchTerm, setSearchTerm] = useState("");
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const searchQuery = queryParams.get("search") || "";
-  const filteredBrands = brands.filter((brand) => {
-    if (!search) return true;
-    return brand.name?.toLocaleLowerCase().includes(search.toLocaleLowerCase());
-  }
-
+   const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+  const filteredBrands = brands.filter((brand) => brand.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
   );
   
   return (
     <>
-      <div className="flex flex-col min-w-full    ">
+      <div className="flex flex-col min-w-full ">
         
         <div className="w-full fixed ">
-          <Navbar />
-          <FaBars />
+          <Navbar 
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          onSearch={handleSearch}
+          />
+         
         </div>
         <div className="px-6 py-6 ">
           <div className="grid
                     grid-cols-1
                     sm:grid-cols-2
-                    lg:grid-cols-3
+                    lg:grid-cols-4
                     xl:grid-cols-4
-                    gap-8 ">
-            {filteredBrands.length === 0 && <p> No brands found</p> }
+                    gap-6 ">
+          
             {filteredBrands.map((brand) => (
               <div
                 key={brand.id}
-                className="border border-red-300 px-3 py-2 w-[80%] bg-white rounded-md shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col items-center  "
+                className="border border-red-300 px-3 py-2 w-[80%] bg-white rounded-md shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col items-center"
               >
                 <h3
                   className="font-semibold text-lg"
