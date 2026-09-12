@@ -38,21 +38,21 @@ const Home = () => {
                     xl:grid-cols-4
                     gap-4 ">
           
-            {filteredBrands.map((brand) => (
-              <div
-                key={brand.id}
-                className="border border-red-300 px-3 py-2 w-[80%] bg-white rounded-md shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col items-center"
-              >
-                <h3
-                  className="font-semibold text-lg"
-                >
-                  {brand.name}
-                </h3>
+{filteredBrands.map((brand) => (
+<div
+key={brand.id}
+className="border border-red-300 px-3 py-2 w-[80%] bg-white rounded-md shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col items-center"
+>
+<h3
+className="font-semibold text-lg"
+>
+{brand.name}
+</h3>
                
                 <img
                   src={brand.image}
                   alt=""
-                  className=" h-60
+                  className=" h-50
                         w-full
                         object-contain
                         bg-gray-100 

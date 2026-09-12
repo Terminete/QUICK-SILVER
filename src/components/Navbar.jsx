@@ -14,7 +14,7 @@ const Navbar = ({onSearch}) => {
   }
   return (
     <>
-      <nav className="w-full h-18 flex flex-col md:flex-row  justify-between items-center gap-3  bg-gray-500 shadow-md sticky top-0 text-white py-2 px-3 overscroll-contain ">
+      <nav className="w-full h-10 flex flex-col md:flex-row  justify-between items-center gap-3  bg-gray-500 shadow-md sticky top-0 text-white py-2 px-3 overscroll-contain ">
         <h1 className="">
           <Link to="/ " className="font-bold text-2xl  ">QUICK SILVER GAS POINT</Link>
         </h1>
@@ -24,7 +24,7 @@ const Navbar = ({onSearch}) => {
           placeholder="Search gas..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="border px-3 py-1 rounded-lg w-full md:w-64 outline-none"
+          className="border px-1 py-1 rounded-lg w-full md:w-64 outline-none"
         />
 
         <button
