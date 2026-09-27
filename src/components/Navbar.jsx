@@ -14,7 +14,7 @@ const Navbar = ({onSearch}) => {
   }
   return (
     <>
-      <nav className="w-full h-10 flex flex-col md:flex-row  justify-between items-center gap-3  bg-gray-500 shadow-md sticky top-0 text-white py-2 px-3 overscroll-contain ">
+      <nav className="w-full h-15 flex flex-col md:flex-row  justify-between items-center gap-3  bg-gray-500 shadow-md sticky top-0 text-white py-2 px-3 overscroll-contain ">
         <h1 className="">
           <Link to="/ " className="font-bold text-2xl  ">QUICK SILVER GAS POINT</Link>
         </h1>
