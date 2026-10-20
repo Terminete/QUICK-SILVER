@@ -43,7 +43,7 @@ const Login = () => {
             />
             <div className="">
               <p className="text-sm w-fit hover:underline cursor-pointer mb-2 hover:text-green-500  ">
-                Forgot Password ?
+                Forgot password?
               </p>
             </div>
             <button

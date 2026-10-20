@@ -6,7 +6,7 @@ const Payment = () => {
   if (!order){
     return (
       <div className="p-6 text-center">
-        <h2 className=' text-xl font-bold'>NO order found</h2>
+        <h2 className=' text-xl font-bold'>page under maintainance</h2>
       </div>
     )
   }
