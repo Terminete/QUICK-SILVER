@@ -5,7 +5,7 @@
     id: 1,
     name: "Total Gas",
     image:"/images/13kg totalEnergies.png",
-      price: 2500,
+      price: 2300,
   },
   {
     id: 2,
@@ -15,63 +15,63 @@
   },
   {
     id: 3,
-    name: "super-gas",
-    price: 2300,
+    name: "Super-gas",
+    price: 2500,
     image: "/images/13kg supa gas.png "
   },
   {
     id:4,
     name:"Afrigas",
-    price:2450,
+    price:2750,
     image:"/images/13KG afrigas.png"
   },
   {
     id:5,
-    name:"PRO GAS",
-    price:1350,
+    name:"Pro gas",
+    price:1150,
     image:"/images/6kg pro gas complete.png"
   },
   {
   id:6,
   name:"Lake gas",
-  price:1250,
+  price:900,
   image:"/images/6kg lake gas.png"
   },
   {
     id:7,
-    name:"grill",
-    price:1050,
+    name:"Grill",
+    price:400,
     image:"/images/grill.png"
 
   },
   {
     id:8,
     name:"Hashi gas",
-    price:1200,
+    price:2700,
     image:"/images/13kg Hashi gas.png"
   },
   {
     id:9,
     name:"Top gas",
-    price:1000,
+    price:950,
     image:"/images/Top gas.png"
   },
   {
     id:10,
     name:"Burner",
-    price:950,
+    price: 450,
     image:"/images/burner.png"
   },
   {
     id:11,
     name:"6kg Afrigas",
-    price:1250,
+    price:1050,
     image:"/images/6kg afrigas complete.png"
   },
   {
 id:12,
 name:"6kg Pro gas",
-price:950,
+price:1200,
 image:"/images/6kg pro gas.png"
   },
   {
@@ -113,7 +113,7 @@ image:"/images/6kg pro gas.png"
   {
     id:19,
     name:"Gas cooker",
-    price:1200,
+    price:2600,
     image:"/images/Gas cooker.jpg"
   },
   {
@@ -131,7 +131,7 @@ image:"/images/6kg pro gas.png"
   {
     id:22,
     name:"Pro gas 13kg ",
-    price:1200,
+    price:2800,
     image:"/images/PROgas-13kg.jpg"
   },
   {
@@ -147,7 +147,7 @@ image:"/images/6kg pro gas.png"
   },{
     id:25,
     name:"cooker",
-    price:750,
+    price:2500,
     image:"/images/cooker.jpeg"
   },
   {
