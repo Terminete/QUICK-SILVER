@@ -1,13 +1,5 @@
 import { Link } from "react-router-dom"
-import { useParams } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import { brands } from "../data/brands"
-import { useState } from "react"
-import { use } from "react"
 const BrandCard = ({brand}) => {
-const navigate = use()
-
-
   if (!brand) return  null
   return (
     < >
@@ -18,7 +10,7 @@ const navigate = use()
     <h3 className='text-1g font-semibold'>{brand.name}</h3>
     <p className='text-2xl font-bold text-green-600'>KES {brand.price}</p>
   {/*LINK TO ORDER PAGE */}
-  <Link to={`/Order/${brand.id}`}
+  <Link to={`/order/${brand.id}`}
   className="block text-center mt-3 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Order Now</Link>
   </div>
   </div>    

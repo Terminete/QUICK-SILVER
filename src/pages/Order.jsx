@@ -1,115 +1,136 @@
-import {useState} from 'react'
-import { useParams } from 'react-router-dom'
-import brands from '../data/brands'
-const order = () => {
-const { id } = useParams()
-const selectedBrand = brands.find(
-(brands) => brands.id === Number(id)
-)
+import { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import brands from "../data/brands";
 
-const [address, setAddress] = useState("")
-const [location, setLocation] = useState("")
-const [paymentMethod, setPaymentMethod] = useState("mpesa")
-const [orderPlaced, setOrderPlaced] = useState(false)
-if (!selectedBrand){
-return(
-<p className='text-center mt-10 text-red-500'>
-Gas brand not found
-</p>
-)
-}
+const Order = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const selectedBrand = brands.find((brand) => brand.id === Number(id));
+  const [address, setAddress] = useState("");
+  const [location, setLocation] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState("mpesa");
 
-const handleOrder = (e) => {
-e.preventDefault()
+  if (!selectedBrand) {
+    return (
+      <div className="min-h-screen bg-slate-100">
+        <Navbar />
+        <main className="mx-auto max-w-xl px-4 py-16 text-center">
+          <h1 className="text-2xl font-bold text-slate-900">Gas product not found</h1>
+          <Link to="/" className="mt-5 inline-block font-semibold text-emerald-700">
+            Browse products
+          </Link>
+        </main>
+      </div>
+    );
+  }
 
-if (!address || !location) {
-alert("Please fill in delivery address and location")
-return
-}
+  const handleOrder = (event) => {
+    event.preventDefault();
+    const deliveryAddress = address.trim();
+    const deliveryLocation = location.trim();
 
-// Simulate successful payment & order
-setOrderPlaced(true)
-}
+    if (!deliveryAddress || !deliveryLocation) return;
 
-return (
-<div className="min-h-screen bg-gray-100 flex justify-center items-center p-4">
-<div className="bg-white p-6 rounded-lg shadow w-full max-w-md">
-<h2 className="text-2xl font-bold mb-4 text-center">
-Gas Order Details
-</h2>
+    const order = {
+      items: [{
+        id: selectedBrand.id,
+        name: selectedBrand.name,
+        price: Number(selectedBrand.price),
+        quantity: 1,
+        total: Number(selectedBrand.price),
+        image: selectedBrand.image,
+      }],
+      address: deliveryAddress,
+      location: deliveryLocation,
+      paymentMethod,
+      totalAmount: Number(selectedBrand.price),
+      status: "pending",
+      createdAt: new Date().toISOString(),
+    };
 
+    localStorage.setItem("order", JSON.stringify(order));
+    navigate("/payment");
+  };
 
-{!orderPlaced ? (
-<form onSubmit={handleOrder}>
-{/* Address */}
-<div className="mb-4">
-  <label className="block mb-1 font-medium">Delivery Address</label>
-  <input
-    type="text"
-    placeholder="Street / House No"
-    className="w-full px-3 py-2 border rounded"
-    value={address}
-    onChange={(e) => setAddress(e.target.value)}
-  />
-</div>
+  return (
+    <div className="min-h-screen bg-slate-100 text-slate-900">
+      <Navbar />
+      <main className="mx-auto grid max-w-5xl gap-6 px-4 py-8 md:grid-cols-[1fr_0.8fr]">
+        <form
+          onSubmit={handleOrder}
+          className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+        >
+          <p className="text-sm font-semibold uppercase text-emerald-700">Delivery details</p>
+          <h1 className="mt-2 text-2xl font-bold">Complete your order</h1>
 
-{/* Location */}
-<div className="mb-4">
-  <label className="block mb-1 font-medium">Location</label>
-  <input
-    type="text"
-    placeholder="Town / Area"
-    className="w-full px-3 py-2 border rounded"
-    value={location}
-    onChange={(e) => setLocation(e.target.value)}
-  />
-</div>
+          <label htmlFor="delivery-address" className="mb-2 mt-6 block text-sm font-semibold">
+            Delivery address
+          </label>
+          <input
+            id="delivery-address"
+            type="text"
+            autoComplete="street-address"
+            required
+            placeholder="Street, building, house number"
+            className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"
+            value={address}
+            onChange={(event) => setAddress(event.target.value)}
+          />
 
-{/* Payment Method */}
-<div className="mb-4">
-  <label className="block mb-1 font-medium">
-    Payment Method
-  </label>
-  <select
-    className="w-full px-3 py-2 border rounded"
-    value={paymentMethod}
-    onChange={(e) => setPaymentMethod(e.target.value)}
-  >
-    <option value="mpesa">M-Pesa</option>
-    <option value="card">Card</option>
-    <option value="cash">Cash on Delivery</option>
-  </select>
-</div>
+          <label htmlFor="delivery-location" className="mb-2 mt-5 block text-sm font-semibold">
+            Town or area
+          </label>
+          <input
+            id="delivery-location"
+            type="text"
+            autoComplete="address-level2"
+            required
+            placeholder="Town or neighbourhood"
+            className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"
+            value={location}
+            onChange={(event) => setLocation(event.target.value)}
+          />
 
-<button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
-  Pay & Place Order
-</button>
-<h2 className="text-xl font-bold mb-2">
-Ordering: {selectedBrand.name}
-</h2>
+          <label htmlFor="payment-method" className="mb-2 mt-5 block text-sm font-semibold">
+            Payment method
+          </label>
+          <select
+            id="payment-method"
+            className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"
+            value={paymentMethod}
+            onChange={(event) => setPaymentMethod(event.target.value)}
+          >
+            <option value="mpesa">M-Pesa</option>
+            <option value="card">Card</option>
+            <option value="cash">Cash on delivery</option>
+          </select>
 
-<p className="text-green-600 font-semibold mb-4">
-Price: KES {selectedBrand.price}
-</p>
-</form>
-) : (
-<div className="text-center"
-><h3>name: </h3>
-<h4>id: </h4>
-<h5>price: </h5>
-<h4 className="text-xl font-semibold text-green-600 mb-2">
-  Order Successful 
-</h4>
-<p className="text-gray-600">
-  Your gas is now <strong>in transit</strong>.
-</p>
+          <button
+            type="submit"
+            className="mt-6 w-full rounded-lg bg-emerald-700 px-5 py-3 font-bold text-white transition hover:bg-emerald-800 focus:outline-none focus:ring-4 focus:ring-emerald-200"
+          >
+            Continue to payment
+          </button>
+        </form>
 
-</div>
-)}
-</div>
-</div>
-)
-}
+        <section className="h-fit rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-bold">Order summary</h2>
+          <div className="mt-5 flex items-center gap-4">
+            <img src={selectedBrand.image} alt={selectedBrand.name} className="h-20 w-20 object-contain" />
+            <div>
+              <p className="font-semibold">{selectedBrand.name}</p>
+              <p className="mt-1 text-sm text-slate-500">Quantity: 1</p>
+            </div>
+          </div>
+          <div className="mt-6 flex justify-between border-t border-slate-200 pt-4 font-bold">
+            <span>Total</span>
+            <span>KES {Number(selectedBrand.price).toLocaleString("en-KE")}</span>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+};
 
-
-export default order
+export default Order;

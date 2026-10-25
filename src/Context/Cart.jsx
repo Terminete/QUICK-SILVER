@@ -1,6 +1,5 @@
 import React from "react";
 import { useCart } from "../Context/CartContext";
-import brands from "../data/brands";
 import Navbar from "../components/Navbar";
 const Cart = () => {
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity, } = useCart();

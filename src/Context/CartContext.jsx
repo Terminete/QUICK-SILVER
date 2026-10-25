@@ -3,7 +3,6 @@ import { createContext, useContext, useState } from "react";
 const CartContext = createContext(null);
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-
     // Add product to cart
   const addToCart = (brand) => {
     setCart((prev) => {
@@ -13,7 +12,7 @@ export function CartProvider({ children }) {
       if (existingBrand) {
         return prev.map((item) =>
           item.id === brand.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity:  (Number(item.quantity) || 1) +1}
             : item
         );
       }
@@ -33,7 +32,20 @@ export function CartProvider({ children }) {
       )
     );
   };
-
+ // update quantity for a selected gas.
+ const updateQuantity = (id, change) => {
+  setCart((prev) => 
+    prev.map((brand) => {
+      if (brand.id !== id)return brand;
+      const newQuantity = 
+      (Number(brand.quantity) || 1) + change;
+      return{...brand, quantity: newQuantity};
+    
+    }
+    )
+   .filter((brand) => Number(brand.quantity) > 0)
+  );
+ };
   // Decrease quantity
   const decreaseQuantity = (id) => {
     setCart((prev) =>
@@ -54,7 +66,7 @@ export function CartProvider({ children }) {
 
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart , increaseQuantity, decreaseQuantity,}}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart , increaseQuantity, decreaseQuantity, updateQuantity}}>
       {children}
     </CartContext.Provider>
   );
