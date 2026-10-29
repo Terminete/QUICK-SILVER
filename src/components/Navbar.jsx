@@ -7,16 +7,25 @@ import { FaBars, FaFireFlameCurved, FaMagnifyingGlass, FaXmark } from "react-ico
 const Navbar = () => {
   const { cart } = useCart();
   const { user, logout } = useAuth();
-  const [searchTerm, setSearchTerm] = useState("");
+  const location = useLocation();
+  const [searchTerm, setSearchTerm] = useState(
+    () => new URLSearchParams(location.search).get("search") || ""
+  );
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
   const cartCount = cart.reduce((count, item) => count + (Number(item.quantity) || 1), 0);
+
+  const updateSearch = (value) => {
+    setSearchTerm(value);
+    const query = value.trim();
+    navigate(query ? `/?search=${encodeURIComponent(query)}` : "/", {
+      replace: location.pathname === "/",
+    });
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const query = searchTerm.trim();
-    navigate(query ? `/?search=${encodeURIComponent(query)}` : "/");
+    updateSearch(searchTerm);
     setMenuOpen(false);
   };
 
@@ -51,7 +60,7 @@ const Navbar = () => {
               type="search"
               placeholder="Search gas and accessories"
               value={searchTerm}
-              onChange={(event) => setSearchTerm(event.target.value)}
+              onChange={(event) => updateSearch(event.target.value)}
               className="w-full rounded-lg border border-white/20 bg-white/10 py-2.5 pl-10 pr-3 text-sm text-white outline-none transition placeholder:text-white/50 focus:border-[#f4a261] focus:ring-4 focus:ring-[#f4a261]/15"
             />
           </div>
